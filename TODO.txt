@@ -1,0 +1,1 @@
+- figure out how to overlay a symlink on top of an existing file non-destructively, or work around the destruction
