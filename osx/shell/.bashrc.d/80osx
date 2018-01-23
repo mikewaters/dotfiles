@@ -1,0 +1,10 @@
+
+# Env var customizations
+export PATH="/usr/local/bin:${PATH}"
+export PATH="${HOME}/bin:$PATH"
+
+export PATH=/Library/Developer/CommandLineTools/usr/bin:$PATH
+
+# gnu utils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

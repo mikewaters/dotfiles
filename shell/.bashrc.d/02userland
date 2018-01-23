@@ -1,0 +1,12 @@
+
+## Base install userland options
+export LS_OPTS='-G'  # osx/non-gnu
+
+export LESS="--RAW-CONTROL-CHARS"
+[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+export GREP_OPTIONS="--color=auto"
+
+## Addon software config
+# tmux
+[ -n "$TMUX" ] && export TERM=screen-256color

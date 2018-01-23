@@ -1,0 +1,20 @@
+
+# powerline
+function _update_ps1() {
+    #PS1="$(powerline-shell $?)"
+    PS1="$(~/go/bin/powerline-go -error $?)"
+}
+
+if [ "$TERM" != "linux" ]; then
+        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+
+# virtualenvwrapper (py27)
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+# node
+export NODE_PATH=$NODE_PATH:${HOME}/node_modules
+

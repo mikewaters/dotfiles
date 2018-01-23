@@ -1,0 +1,7 @@
+HISTSIZE=100000
+HISTFILESIZE=409600
+HISTIGNORE="cd:ls:[bf]g:clear:exit:gp:gs:ll"
+HISTCONTROL=erasedups:ignorespace
+shopt -s histappend
+shopt -s checkwinsize
+
