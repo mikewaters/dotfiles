@@ -14,9 +14,10 @@ ifneq ($(strip $(EXTRA_INCLUDES)),)
 # for each osx-specific package override, symlink the files
 # contained in the package (using stow) into the main
 # package directory.
+MAKEDIR = $(shell pwd)
 osx:
-	@cd osx && $(foreach p, $(OSX_PACKAGES), \
-		stow $(STOWOPTS) -t ../$p $p; \
+	@cd contexts/osx && $(foreach p, $(OSX_PACKAGES), \
+		stow $(STOWOPTS) -t $(MAKEDIR)/$p $p; \
 	)
 
 # add a line to .stowrc to target user's ${HOME}
