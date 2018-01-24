@@ -1,3 +1,4 @@
 # if you want to store this dotfiles repository outside of your home directory,
-# just modify the 'target' variable below, which equates to sending -t to stow:
-# --target=/path/to/homedir
+# add a '--target' variable below, which equates to sending -t to stow,
+# or run `make install` which will do it for you.
+--ignore=contexts

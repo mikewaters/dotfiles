@@ -1,5 +1,5 @@
 
-.PHONY: osx macbook
+.PHONY: osx install
 
 STOWOPTS ?=  # pass "-D" to revert stowed dotfiles for a given make target
 OSX_PACKAGES = shell git
@@ -19,3 +19,7 @@ osx:
 		stow $(STOWOPTS) -t ../$p $p; \
 	)
 
+# add a line to .stowrc to target user's ${HOME}
+STOWRC = .stowrc
+install:
+	@grep -q ^--target $(STOWRC) && perl -i -pe 's/^--target.*/--target=${HOME}/' $(STOWRC) || echo '--target=${HOME}' >> $(STOWRC)
