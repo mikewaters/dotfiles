@@ -3,6 +3,7 @@
 
 STOWOPTS ?=  # pass "-D" to revert stowed dotfiles for a given make target
 OSX_PACKAGES = shell git
+PACKAGES = bin git nvim powerline python shell ssh tmux 
 
 # allow user to specify out of band makefiles (something.mk)
 EXTRA_INCLUDES:=$(wildcard *.mk)
@@ -18,6 +19,11 @@ MAKEDIR = $(shell pwd)
 osx:
 	@cd contexts/osx && $(foreach p, $(OSX_PACKAGES), \
 		stow $(STOWOPTS) -t $(MAKEDIR)/$p $p; \
+	)
+
+osx:
+	@$(foreach p, $(PACKAGES), \
+		stow $(STOWOPTS) $p; \
 	)
 
 # add a line to .stowrc to target user's ${HOME}
