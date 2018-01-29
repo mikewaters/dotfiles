@@ -1,1 +1,4 @@
 - figure out how to overlay a symlink on top of an existing file non-destructively, or work around the destruction
+    - as part of this, figure out how to selectively ignore these changes, to make pushing actual changes less complicated
+    - perhaps using a submodule or subtree for private customizations (instead of relying on gitignore) would allo the use of
+    ignore files for this

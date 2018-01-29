@@ -1,7 +1,7 @@
 
 .PHONY: osx install
 
-STOWOPTS ?= --adopt  # pass "-D" to revert stowed dotfiles for a given make target
+STOWOPTS ?= # pass "-D" to revert stowed dotfiles for a given make target
 OSX_PACKAGES = shell git bin
 PACKAGES = bin git nvim powerline python shell ssh tmux 
 
@@ -14,11 +14,15 @@ ifneq ($(strip $(EXTRA_INCLUDES)),)
 
 # for each osx-specific package override, symlink the files
 # contained in the package (using stow) into the main
-# package directory.
+# package directory.  We essentially `-f` here, using --adopt,
+# which will force the change even if the file exists (which is
+# the whole point of overriding).  We don't --adopt anywhere else;
+# in this repo we have control, but in the user's home directory
+# it would risk deleting files that they need.
 MAKEDIR = $(shell pwd)
 osx:
 	@cd contexts/osx && $(foreach p, $(OSX_PACKAGES), \
-		stow $(STOWOPTS) -t $(MAKEDIR)/$p $p; \
+		stow $(STOWOPTS) --adopt -t $(MAKEDIR)/$p $p; \
 	)
 
 all:
