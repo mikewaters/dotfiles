@@ -1,8 +1,8 @@
 
 .PHONY: osx install
 
-STOWOPTS ?=  # pass "-D" to revert stowed dotfiles for a given make target
-OSX_PACKAGES = shell git
+STOWOPTS ?= --adopt  # pass "-D" to revert stowed dotfiles for a given make target
+OSX_PACKAGES = shell git bin
 PACKAGES = bin git nvim powerline python shell ssh tmux 
 
 # allow user to specify out of band makefiles (something.mk)
@@ -21,7 +21,7 @@ osx:
 		stow $(STOWOPTS) -t $(MAKEDIR)/$p $p; \
 	)
 
-osx:
+all:
 	@$(foreach p, $(PACKAGES), \
 		stow $(STOWOPTS) $p; \
 	)
@@ -29,4 +29,4 @@ osx:
 # add a line to .stowrc to target user's ${HOME}
 STOWRC = .stowrc
 install:
-	@grep -q ^--target $(STOWRC) && perl -i -pe 's/^--target.*/--target=${HOME}/' $(STOWRC) || echo '--target=${HOME}' >> $(STOWRC)
+	grep -q ^--target $(STOWRC) && perl -i -pe 's|^--target.*|--target=${HOME}|' $(STOWRC) || echo '--target=${HOME}' >> $(STOWRC)
