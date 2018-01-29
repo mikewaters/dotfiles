@@ -11,4 +11,4 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # osx-specific aliases
 alias vi=nvim  # on linux, I want to use system vi, but not on osx
-
+alias sed=gsed
