@@ -2,8 +2,8 @@
 .PHONY: osx install
 
 STOWOPTS ?= # pass "-D" to revert stowed dotfiles for a given make target
-OSX_PACKAGES = shell git bin
-PACKAGES = bin git nvim powerline python shell ssh tmux 
+OSX_PACKAGES = shell git bin vscode
+PACKAGES = bin git nvim powerline python shell ssh tmux alacritty vscode
 
 # allow user to specify out of band makefiles (something.mk)
 EXTRA_INCLUDES:=$(wildcard *.mk)

@@ -18,4 +18,5 @@ fi
 
 # node
 export NODE_PATH=$NODE_PATH:${HOME}/node_modules
-
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
