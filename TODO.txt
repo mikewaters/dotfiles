@@ -2,3 +2,4 @@
     - as part of this, figure out how to selectively ignore these changes, to make pushing actual changes less complicated
     - perhaps using a submodule or subtree for private customizations (instead of relying on gitignore) would allo the use of
     ignore files for this
+- abstract away the context-specific stuff, its annoying
